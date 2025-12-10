@@ -1,0 +1,2456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fire & Safety Equipment Co.</title>
+
+  <!-- Google Fonts - Oswald -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet"/>
+
+  <!-- Bootstrap CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+
+  <!-- Base CSS -->
+  <style>
+/* ============================================
+   BASE STYLES - Fire & Safety Equipment Co.
+   ============================================ */
+
+/* Typography */
+body {
+  margin: 0;
+  padding-top: 56px; /* for fixed navbar */
+  background: #ffffff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Zero border-radius everywhere */
+.btn,
+.form-control,
+.form-select,
+.input-group-text,
+.modal-content,
+.badge,
+.page-link {
+  border-radius: 0 !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #000;
+  border-color: #000;
+}
+
+.btn-primary:hover {
+  background: #FF0000;
+  border-color: #FF0000;
+}
+
+.btn-outline-dark {
+  border-color: #000;
+  color: #000;
+}
+
+.btn-outline-dark:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-danger {
+  background: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-sm {
+  border-radius: 0 !important;
+}
+
+/* Form Controls */
+.form-control:focus,
+.form-select:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 .2rem rgba(0, 0, 0, .2);
+}
+
+/* Larger checkboxes with black borders */
+.form-check-input {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid #000;
+  border-radius: 0 !important;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #000;
+  border-color: #000;
+}
+
+.form-check-input:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 .2rem rgba(0, 0, 0, .2);
+}
+
+.form-check-label {
+  cursor: pointer;
+  padding-left: 0.5rem;
+}
+
+/* Page Wrap Container */
+.page-wrap {
+  max-width: 960px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border: 1px solid #e3e3e3;
+  background: #fff;
+}
+
+/* Section Dividers */
+.section-divider {
+  border-top: 2px solid #000;
+  margin: 2rem 0;
+}
+
+/* Required Field Indicator */
+.required::after {
+  content: " *";
+  color: #dc3545;
+  font-weight: 700;
+}
+
+.muted-note {
+  color: #6c757d;
+}
+
+/* Tables */
+.table {
+  background: #fff;
+  border: 1px solid #dcdcdc;
+}
+
+.table th {
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  border: none;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+/* Badges */
+.badge {
+  border-radius: 0 !important;
+  padding: 0.4rem 0.8rem;
+  font-weight: 600;
+}
+
+.badge-success {
+  background: #28a745;
+}
+
+.badge-secondary {
+  background: #6c757d;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Stats Cards */
+.stats-card {
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.stats-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.stats-label {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+/* Admin Navigation */
+.admin-nav {
+  background: #fff;
+  border-bottom: 2px solid #000;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.admin-nav a {
+  color: #6c757d;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.admin-nav a:hover,
+.admin-nav a.active {
+  color: #000;
+}
+
+/* Job Cards */
+.job-card {
+  border: 1px solid #dcdcdc;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: #fff;
+  transition: all 0.2s;
+}
+
+.job-card:hover {
+  border-color: #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.job-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  color: #000;
+}
+
+.job-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.job-meta-item i {
+  color: #000;
+}
+
+.job-excerpt {
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.job-section {
+  background: #f8f9fa;
+  border: 1px solid #dcdcdc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Filter Section */
+.filter-section {
+  background: #f8f9fa;
+  border: 1px solid #dcdcdc;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Info Sections */
+.info-section {
+  background: #f8f9fa;
+  border: 1px solid #dcdcdc;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info-label {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.info-value {
+  color: #000;
+}
+
+/* Links */
+.resume-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.resume-link:hover {
+  color: #FF0000;
+}
+
+.back-link {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.back-link:hover {
+  color: #FF0000;
+}
+
+/* Action Bar */
+.action-bar {
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.status-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Notes Section */
+.notes-section {
+  background: #fff9e6;
+  border: 1px solid #ffc107;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.note-item {
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  margin-bottom: 1rem;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Applicant Name */
+.applicant-name {
+  font-weight: 600;
+  color: #000;
+}
+
+/* Admin Background */
+body.admin-background {
+  background: #f8f9fa;
+}
+
+/* Pagination */
+.pagination .page-link {
+  border-radius: 0 !important;
+}
+
+/* Navbar Brand */
+.navbar-brand {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fire-icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); /* Makes the black SVG white */
+}
+
+
+</style>
+</head>
+<body>
+
+  <!-- Header/Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="#" data-route="/">
+        <svg class="fire-icon" data-name="Layer 15" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.40448,21.48406C5.45,20.32475,3.85307,16.65412,4.01055,13.21867A5.92117,5.92117,0,0,1,5.62968,9.42918c-.1802.77154-.043,3.27271,1.329,4.379a7.10582,7.10582,0,0,1,.08406-3.64256c1.01224-2.75183,3.88365-3.49174,3.584-5.99968a5.83923,5.83923,0,0,0-.73361-2.31574a8.94214,8.94214,0,0,1,4.1618,2.93392,6.23094,6.23094,0,0,1,1.316,3.84377,6.80276,6.80276,0,0,1-.17354,1.4644a4.90984,4.90984,0,0,1,.98246-1.58547,6.56465,6.56465,0,0,1,2.6449-1.57936,5.95363,5.95363,0,0,0-.58742,3.64576c.23179,1.393,1.30853,3.22821,1.041,5.4067a6.16268,6.16268,0,0,1-4.46769,5.4852c1.10582-1.353,1.8938-3.86838.6088-5.30489a3.83479,3.83479,0,0,1-1.065,2.24033a2.28824,2.28824,0,0,0,.23124-1.3991c-.18452-1.76861-1.80893-2.08381-1.86955-3.20516a2.3679,2.3679,0,0,1,.27008-1.388a4.18613,4.18613,0,0,0-1.94045,1.47018a3.2751,3.2751,0,0,0-.61363,1.92616,3.65647,3.65647,0,0,0,.0809.73383,2.49636,2.49636,0,0,0-.45808-.79452,3.02646,3.02646,0,0,0-1.23319-.79139c.83949,2.14715-.34417,2.28887-.58491,3.57155C7.932,19.7265,9.02365,21.06251,9.40448,21.48406Z"/>
+        </svg>
+        <span id="brand-text">Fire &amp; Safety Equipment Co.</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto" id="main-nav">
+          <!-- Navigation items will be populated by components -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Admin Navigation (shown conditionally) -->
+  <div id="admin-nav" style="display: none;">
+    <!-- Admin nav will be populated by admin components -->
+  </div>
+
+  <!-- Main Content Container -->
+  <main id="app-container" class="page-wrap container">
+    <!-- Component content will be loaded here -->
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- SPA Router -->
+  <script>
+// Component: jobs-list
+/**
+ * Jobs List Component
+ * Contains HTML, CSS, and JS for the jobs listing page
+ */
+
+class JobsList {
+  constructor() {
+    this.jobs = [];
+    this.loading = true;
+  }
+
+  /**
+   * Load data from JSON file
+   */
+  async loadData() {
+    try {
+      this.jobs = [{"id": 1, "title": "Field Service Technician", "location": "Denver, CO", "type": "Full-Time", "salary": "$45,000 - $65,000", "posted": "Oct 5, 2025", "excerpt": "We are seeking a skilled Field Service Technician to install, inspect, and maintain fire protection equipment. 2+ years experience required.", "experience": "2-5 Years", "status": "Open", "description": "We are seeking a skilled and motivated Field Service Technician to join our team. The ideal candidate will be responsible for installing, inspecting, maintaining, and repairing fire protection and safety equipment at customer locations throughout the Denver metro area.", "responsibilities": ["Install, inspect, test, and maintain fire extinguishers, emergency lighting, exit signs, and fire suppression systems", "Perform scheduled preventive maintenance and emergency repair services", "Diagnose equipment malfunctions and perform necessary repairs or replacements", "Complete accurate service documentation and customer reports", "Provide excellent customer service and communicate technical information clearly", "Ensure compliance with NFPA codes and local fire safety regulations", "Maintain service vehicle, tools, and equipment inventory", "Respond to emergency service calls as needed"], "requiredQualifications": ["High school diploma or GED", "Valid driver's license with clean driving record", "2+ years of experience in fire protection, HVAC, electrical, or related field", "Strong mechanical aptitude and troubleshooting skills", "Ability to lift up to 50 lbs and work in various environments", "Excellent customer service and communication skills", "Ability to work independently and manage time effectively", "Willingness to participate in on-call rotation"], "preferredQualifications": ["NICET Fire Protection certification", "State fire extinguisher technician license", "Experience with fire alarm systems", "Technical training or certifications in fire protection systems", "Military veteran with relevant technical experience"], "benefits": ["Competitive salary based on experience", "Health, dental, and vision insurance", "401(k) with company match", "Paid time off and holidays", "Company vehicle and equipment provided", "Ongoing training and certification opportunities", "Career advancement opportunities"]}, {"id": 2, "title": "Sales Representative", "location": "Colorado Springs, CO", "type": "Full-Time", "salary": "$50,000 - $80,000 + Commission", "posted": "Oct 3, 2025", "excerpt": "Join our sales team to provide fire safety solutions to commercial clients. Experience in B2B sales preferred.", "experience": "3+ Years", "status": "Open", "description": "We are looking for an experienced Sales Representative to join our growing team. You will be responsible for developing new business relationships and maintaining existing client accounts in the commercial fire safety market.", "responsibilities": ["Identify and pursue new business opportunities in the commercial sector", "Build and maintain relationships with property managers, facility managers, and business owners", "Conduct site assessments and provide fire safety solutions", "Prepare and present proposals and quotes", "Meet or exceed sales targets and quotas", "Collaborate with technical team to ensure customer satisfaction", "Maintain accurate records in CRM system", "Attend industry events and networking opportunities"], "requiredQualifications": ["Bachelor's degree or equivalent experience", "3+ years of B2B sales experience", "Strong communication and presentation skills", "Ability to build rapport and maintain relationships", "Self-motivated and goal-oriented", "Valid driver's license", "Proficiency with CRM software"], "preferredQualifications": ["Experience in fire safety or construction industry", "Knowledge of fire codes and regulations", "Existing network of commercial contacts", "Technical sales background"], "benefits": ["Base salary plus commission", "Health, dental, and vision insurance", "401(k) with company match", "Paid time off and holidays", "Company vehicle or mileage reimbursement", "Unlimited earning potential", "Professional development opportunities"]}, {"id": 3, "title": "Warehouse Associate", "location": "Aurora, CO", "type": "Full-Time", "salary": "$35,000 - $45,000", "posted": "Sep 28, 2025", "excerpt": "Manage inventory, receive shipments, and prepare equipment for field technicians. Forklift certification a plus.", "experience": "1+ Years", "status": "Open", "description": "We are seeking a reliable Warehouse Associate to join our operations team. This role involves managing inventory, processing orders, and ensuring our field technicians have the equipment they need.", "responsibilities": ["Receive and inspect incoming shipments", "Organize and maintain warehouse inventory", "Prepare equipment and materials for field service calls", "Operate forklift and other warehouse equipment", "Maintain accurate inventory records", "Assist with shipping and receiving", "Keep warehouse clean and organized", "Support field technicians with equipment needs"], "requiredQualifications": ["High school diploma or GED", "1+ years of warehouse or logistics experience", "Ability to lift up to 75 lbs", "Attention to detail and accuracy", "Basic computer skills", "Ability to work in a fast-paced environment"], "preferredQualifications": ["Forklift certification", "Experience with inventory management systems", "Knowledge of fire safety equipment", "OSHA certification"], "benefits": ["Competitive hourly wage", "Health, dental, and vision insurance", "401(k) with company match", "Paid time off and holidays", "Overtime opportunities", "Safe working environment", "Career growth opportunities"]}, {"id": 4, "title": "Administrative Assistant", "location": "Denver, CO", "type": "Part-Time", "salary": "$18 - $24/hour", "posted": "Sep 25, 2025", "excerpt": "Provide administrative support including scheduling, customer communications, and office management. 20-30 hours per week.", "experience": "2+ Years", "status": "Open", "description": "We are looking for a part-time Administrative Assistant to support our office operations. This role involves customer service, scheduling, and general administrative tasks.", "responsibilities": ["Answer phones and respond to customer inquiries", "Schedule service appointments and coordinate with technicians", "Process orders and maintain customer records", "Assist with data entry and filing", "Prepare documents and reports", "Manage office supplies and inventory", "Support management with administrative tasks", "Maintain organized filing systems"], "requiredQualifications": ["High school diploma or GED", "2+ years of administrative experience", "Excellent communication skills", "Proficiency with Microsoft Office", "Strong organizational skills", "Ability to multitask", "Professional demeanor"], "preferredQualifications": ["Associate's degree", "Experience in customer service", "Knowledge of scheduling software", "Experience in fire safety or construction industry"], "benefits": ["Flexible schedule", "Competitive hourly rate", "Paid time off", "Professional development opportunities", "Friendly work environment"]}];
+      this.loading = false;
+      
+      // Update the jobs container with loaded data
+      const container = document.getElementById('jobs-container');
+      const count = document.getElementById('job-count');
+      if (container) {
+        container.innerHTML = this.renderJobs();
+      }
+      if (count) {
+        count.textContent = `Showing ${this.jobs.length} jobs`;
+      }
+    } catch (error) {
+      console.error('Error loading jobs:', error);
+      this.loading = false;
+      const container = document.getElementById('jobs-container');
+      if (container) {
+        container.innerHTML = '<div class="alert alert-danger">Error loading jobs. Please try again later.</div>';
+      }
+    }
+  }
+
+  /**
+   * Render the HTML for this component
+   */
+  render() {
+    return `
+      <h1 class="mb-4 text-center">Career Opportunities</h1>
+      <p class="text-center mb-4">Join our team of dedicated professionals committed to fire safety and protection.</p>
+
+      <div class="section-divider"></div>
+
+      <!-- Filter Section -->
+      <div class="filter-section">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label fw-bold">Location</label>
+            <select class="form-select" id="filter-location">
+              <option value="">All Locations</option>
+              <option value="denver">Denver, CO</option>
+              <option value="colorado-springs">Colorado Springs, CO</option>
+              <option value="aurora">Aurora, CO</option>
+              <option value="remote">Remote</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label fw-bold">Employment Type</label>
+            <select class="form-select" id="filter-type">
+              <option value="">All Types</option>
+              <option value="full-time">Full-Time</option>
+              <option value="part-time">Part-Time</option>
+              <option value="temp">Temporary</option>
+              <option value="seasonal">Seasonal</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label fw-bold">Department</label>
+            <select class="form-select" id="filter-department">
+              <option value="">All Departments</option>
+              <option value="field-service">Field Service</option>
+              <option value="sales">Sales</option>
+              <option value="admin">Administration</option>
+              <option value="warehouse">Warehouse</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job Listings -->
+      <div class="job-listings">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3 class="mb-0">Open Positions</h3>
+          <span class="text-muted" id="job-count">${this.loading ? 'Loading...' : `Showing ${this.jobs.length} jobs`}</span>
+        </div>
+
+        <div id="jobs-container">
+          ${this.loading ? '<div class="text-center py-5"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>' : this.renderJobs()}
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="text-center">
+        <h4>Don't see the right fit?</h4>
+        <p>We're always looking for talented individuals. Submit a general application and we'll keep you in mind for future opportunities.</p>
+        <a href="#" data-route="/apply" class="btn btn-primary px-4 py-2">Submit General Application</a>
+      </div>
+    `;
+  }
+
+  /**
+   * Render job cards
+   */
+  renderJobs(filteredJobs = null) {
+    const jobsToRender = filteredJobs || this.jobs;
+    return jobsToRender.map(job => `
+      <div class="job-card" data-job-id="${job.id}">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <div class="job-title">${job.title}</div>
+          <span class="badge badge-success">OPEN</span>
+        </div>
+        <div class="job-meta-row">
+          <div class="job-meta-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span>${job.location}</span>
+          </div>
+          <div class="job-meta-item">
+            <i class="bi bi-briefcase-fill"></i>
+            <span>${job.type}</span>
+          </div>
+          <div class="job-meta-item">
+            <i class="bi bi-cash"></i>
+            <span>${job.salary}</span>
+          </div>
+          <div class="job-meta-item">
+            <i class="bi bi-calendar3"></i>
+            <span>Posted ${job.posted}</span>
+          </div>
+        </div>
+        <p class="job-excerpt">${job.excerpt}</p>
+        <a href="#" data-route="/job/${job.id}" class="btn btn-outline-dark">
+          View Details <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+    `).join('');
+  }
+
+  /**
+   * Get component-specific CSS
+   */
+  getCSS() {
+    return `
+      /* Component-specific styles if needed */
+    `;
+  }
+
+  /**
+   * Initialize component JavaScript
+   */
+  init() {
+    // Filter functionality
+    const filters = ['filter-location', 'filter-type', 'filter-department'];
+    filters.forEach(filterId => {
+      const filter = document.getElementById(filterId);
+      if (filter) {
+        filter.addEventListener('change', () => this.applyFilters());
+      }
+    });
+  }
+
+  /**
+   * Apply filters to job listings
+   */
+  applyFilters() {
+    const location = document.getElementById('filter-location')?.value.toLowerCase() || '';
+    const type = document.getElementById('filter-type')?.value.toLowerCase() || '';
+    const department = document.getElementById('filter-department')?.value.toLowerCase() || '';
+
+    const filtered = this.jobs.filter(job => {
+      const matchesLocation = !location || job.location.toLowerCase().includes(location);
+      const matchesType = !type || job.type.toLowerCase().includes(type);
+      // Department matching would need to be added to job data
+      return matchesLocation && matchesType;
+    });
+
+    const container = document.getElementById('jobs-container');
+    const count = document.getElementById('job-count');
+    if (container) {
+      container.innerHTML = this.renderJobs(filtered);
+    }
+    if (count) {
+      count.textContent = `Showing ${filtered.length} jobs`;
+    }
+  }
+
+  /**
+   * Cleanup when component is removed
+   */
+  cleanup() {
+    // Remove event listeners if needed
+  }
+}
+
+
+
+// Component: dashboard
+/**
+ * Dashboard Component
+ * Contains HTML, CSS, and JS for the dashboard page
+ */
+
+class Dashboard {
+  constructor() {
+    // Dashboard data can be loaded here if needed
+  }
+
+  /**
+   * Render the HTML for this component
+   */
+  render() {
+    return `
+      <h1 class="mb-4 text-center">Dashboard</h1>
+      
+      <div class="row mb-4">
+        <div class="col-md-6 mb-3">
+          <div class="card" style="border-radius: 0;">
+            <div class="card-body">
+              <h5 class="card-title">Quick Actions</h5>
+              <div class="d-grid gap-2">
+                <a href="#" data-route="/apply" class="btn btn-primary">
+                  <i class="bi bi-file-earmark-plus me-2"></i>Submit Application
+                </a>
+                <a href="#" data-route="/" class="btn btn-outline-dark">
+                  <i class="bi bi-briefcase me-2"></i>View Job Openings
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="card" style="border-radius: 0;">
+            <div class="card-body">
+              <h5 class="card-title">Admin Access</h5>
+              <div class="d-grid gap-2">
+                <a href="#" data-route="/admin/jobs" class="btn btn-outline-dark">
+                  <i class="bi bi-briefcase-fill me-2"></i>Manage Jobs
+                </a>
+                <a href="#" data-route="/admin/applicants" class="btn btn-outline-dark">
+                  <i class="bi bi-people me-2"></i>View Applicants
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="text-center">
+        <h4>Welcome to Fire & Safety Equipment Co.</h4>
+        <p class="text-muted">Use the navigation above to access different sections of the application.</p>
+      </div>
+    `;
+  }
+
+  /**
+   * Get component-specific CSS
+   */
+  getCSS() {
+    return `
+      /* Component-specific styles if needed */
+    `;
+  }
+
+  /**
+   * Initialize component JavaScript
+   */
+  init() {
+    // Initialize any dashboard-specific functionality
+  }
+
+  /**
+   * Cleanup when component is removed
+   */
+  cleanup() {
+    // Remove event listeners if needed
+  }
+}
+
+
+
+
+// Component: application-form
+/**
+ * Application Form Component
+ * Contains HTML, CSS, and JS for the employment application form
+ */
+
+class ApplicationForm {
+  constructor() {
+    this.formData = {};
+  }
+
+  /**
+   * Render the HTML for this component
+   */
+  render() {
+    return `
+      <h2 class="mb-4 text-center">Employment Application</h2>
+
+      <form id="employmentForm" method="post" action="/applications/submit" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value="">
+
+        <!-- Personal Information -->
+        <h4>Personal Information</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label required">First Name</label>
+            <input type="text" class="form-control" name="first_name" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label required">Last Name</label>
+            <input type="text" class="form-control" name="last_name" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label required">Email</label>
+            <input type="email" class="form-control" name="email" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" name="phone">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Street Address</label>
+            <input type="text" class="form-control" name="street_address">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Address Line 2</label>
+            <input type="text" class="form-control" name="address_line_2">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">City</label>
+            <input type="text" class="form-control" name="city">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">State</label>
+            <input type="text" class="form-control" name="state">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">ZIP Code</label>
+            <input type="text" class="form-control" name="zip_code">
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Eligibility -->
+        <h4>Eligibility</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label required">Are you 18 years of age or older?</label>
+            <div class="d-flex gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="is_over_18" value="true" required>
+                <label class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="is_over_18" value="false">
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label required">Legally eligible to work in the U.S.?</label>
+            <div class="d-flex gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="legally_eligible" value="true" required>
+                <label class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="legally_eligible" value="false">
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Other name(s) needed to verify your information</label>
+            <input type="text" class="form-control" name="other_names">
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Veteran Status -->
+        <h4>Veteran Status</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label required">Are you a military Veteran?</label>
+            <div class="d-flex gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="is_veteran" value="true" required>
+                <label class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="is_veteran" value="false">
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6" id="activeDutyStartWrap" style="display:none;">
+            <label class="form-label">Active Duty Start Date</label>
+            <input type="date" class="form-control" name="active_duty_start">
+          </div>
+          <div class="col-md-6" id="activeDutyEndWrap" style="display:none;">
+            <label class="form-label">Active Duty End Date</label>
+            <input type="date" class="form-control" name="active_duty_end">
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Employment Desired -->
+        <h4>Employment Desired</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Job Title</label>
+            <input type="text" class="form-control" name="desired_job_title">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Date you can start</label>
+            <input type="date" class="form-control" name="start_date">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Wage Desired</label>
+            <input type="number" step="0.01" class="form-control" name="desired_wage" placeholder="0.00">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Available for</label>
+            <div class="d-flex flex-wrap gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="availability" value="Full-Time" id="availFT">
+                <label class="form-check-label" for="availFT">Full-Time</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="availability" value="Part-Time" id="availPT">
+                <label class="form-check-label" for="availPT">Part-Time</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="availability" value="Temp" id="availTemp">
+                <label class="form-check-label" for="availTemp">Temp</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="availability" value="Seasonal" id="availSeasonal">
+                <label class="form-check-label" for="availSeasonal">Seasonal</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Education -->
+        <h4>Education</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label required">Do you have a High School Diploma or GED?</label>
+            <div class="d-flex gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="has_hs_or_ged" value="true" required>
+                <label class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="has_hs_or_ged" value="false">
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Last Year of School Completed</label>
+            <input type="text" class="form-control" name="last_year_completed" placeholder="e.g., 12">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Name of Last School Attended</label>
+            <input type="text" class="form-control" name="last_school_attended">
+          </div>
+          <div class="col-12">
+            <label class="form-label">School City and State</label>
+            <input type="text" class="form-control" name="school_city_state" placeholder="City, State">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Highest Degree Earned</label>
+            <input type="text" class="form-control" name="highest_degree_earned" placeholder="e.g., High School Diploma">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Area of Concentration and/or degree(s), certificates, licenses, and endorsements</label>
+            <textarea class="form-control" name="area_of_concentration" rows="2"></textarea>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Other Training or Skills (Factory or Office Machines, Special Courses, Computer Skills, etc.)</label>
+            <textarea class="form-control" name="other_training_skills" rows="2"></textarea>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Background -->
+        <h4>Background</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label required">Have you ever been convicted of a felony?</label>
+            <div class="d-flex gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="convicted_felony" value="true" required>
+                <label class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="convicted_felony" value="false">
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label required">Ever convicted of DUI or DWI?</label>
+            <div class="d-flex gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="convicted_dui_dwi" value="true" required>
+                <label class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="convicted_dui_dwi" value="false">
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Employment History -->
+        <h4>Employment History</h4>
+        <p class="muted-note">You can list up to two previous jobs. Start with your most recent employer.</p>
+
+        <div class="job-section" id="job1">
+          <h5>Company #1</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Company Name</label>
+              <input type="text" class="form-control" name="company1_name">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Job Title</label>
+              <input type="text" class="form-control" name="company1_title">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Address</label>
+              <input type="text" class="form-control" name="company1_address">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Start Date</label>
+              <input type="date" class="form-control" name="company1_start">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">End Date</label>
+              <input type="date" class="form-control" name="company1_end">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Rate of Pay</label>
+              <input type="number" step="0.01" class="form-control" name="company1_rate_of_pay" placeholder="0.00">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Detailed Job Duties</label>
+              <textarea class="form-control" name="company1_duties" rows="2"></textarea>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Reason for Leaving</label>
+              <input type="text" class="form-control" name="company1_reason_for_leaving">
+            </div>
+          </div>
+        </div>
+
+        <div class="job-section" id="job2" style="display:none;">
+          <h5>Company #2</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Company Name</label>
+              <input type="text" class="form-control" name="company2_name">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Job Title</label>
+              <input type="text" class="form-control" name="company2_title">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Address</label>
+              <input type="text" class="form-control" name="company2_address">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Start Date</label>
+              <input type="date" class="form-control" name="company2_start">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">End Date</label>
+              <input type="date" class="form-control" name="company2_end">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Rate of Pay</label>
+              <input type="number" step="0.01" class="form-control" name="company2_rate_of_pay" placeholder="0.00">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Detailed Job Duties</label>
+              <textarea class="form-control" name="company2_duties" rows="2"></textarea>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Reason for Leaving</label>
+              <input type="text" class="form-control" name="company2_reason_for_leaving">
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mb-3">
+          <button type="button" class="btn btn-secondary" id="addJobBtn">+ Add Another Job</button>
+          <div class="muted-note mt-2">You may add only one additional job (maximum two total).</div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- References & Certification -->
+        <h4>References and Certification</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label required">May we contact your former employers to verify this information?</label>
+            <div class="d-flex gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="may_contact_former_employers" value="true" required>
+                <label class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="may_contact_former_employers" value="false">
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label required">May we contact your present employer?</label>
+            <div class="d-flex gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="may_contact_present_employer" value="true" required>
+                <label class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="may_contact_present_employer" value="false">
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Additional Info -->
+        <h4>Additional Information</h4>
+        <div class="mb-3">
+          <label class="form-label">Please provide any additional information about your abilities or interests that makes you a good candidate for this position.</label>
+          <textarea class="form-control" name="additional_info" rows="3"></textarea>
+        </div>
+
+        <!-- Resume Upload -->
+        <div class="mb-3">
+          <label class="form-label">Resume Upload (PDF only, max 10 MB)</label>
+          <input type="file" class="form-control" name="resume" id="resume" accept="application/pdf">
+          <div class="form-text">If you'd like to include a resume as part of your application, please upload it here. (PDF only)</div>
+          <div id="resumeError" class="text-danger mt-1" style="display:none;"></div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Consent -->
+        <h4>Consent</h4>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" value="true" id="consent_accept" name="consent" required>
+          <label class="form-check-label required" for="consent_accept">I accept the statement below.</label>
+        </div>
+        <p class="mb-3">
+          I authorize the investigation of all statements contained in this application. I understand that omission or misrepresentation of facts is cause for dismissal.
+        </p>
+
+        <button type="submit" class="btn btn-primary w-100 py-2">
+          <i class="bi bi-send me-2"></i>Submit Application
+        </button>
+      </form>
+    `;
+  }
+
+  /**
+   * Get component-specific CSS
+   */
+  getCSS() {
+    return `
+      /* Component-specific styles if needed */
+    `;
+  }
+
+  /**
+   * Initialize component JavaScript
+   */
+  init() {
+    // Show/Hide Active Duty Dates
+    const veteranCheckboxes = document.querySelectorAll('input[name="is_veteran"]');
+    const activeDutyStartWrap = document.getElementById('activeDutyStartWrap');
+    const activeDutyEndWrap = document.getElementById('activeDutyEndWrap');
+    
+    veteranCheckboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const yesChecked = document.querySelector('input[name="is_veteran"][value="true"]')?.checked;
+        const displayValue = yesChecked ? 'block' : 'none';
+        if (activeDutyStartWrap) activeDutyStartWrap.style.display = displayValue;
+        if (activeDutyEndWrap) activeDutyEndWrap.style.display = displayValue;
+      });
+    });
+
+    // Add Job #2 reveal
+    const addJobBtn = document.getElementById('addJobBtn');
+    const job2 = document.getElementById('job2');
+    if (addJobBtn && job2) {
+      addJobBtn.addEventListener('click', () => {
+        job2.style.display = 'block';
+        addJobBtn.disabled = true;
+        addJobBtn.textContent = 'Maximum (2) Jobs Added';
+      });
+    }
+
+    // Resume validation (PDF only, ≤ 10 MB)
+    const resumeInput = document.getElementById('resume');
+    const resumeError = document.getElementById('resumeError');
+    if (resumeInput && resumeError) {
+      resumeInput.addEventListener('change', () => {
+        resumeError.style.display = 'none';
+        resumeError.textContent = '';
+        const file = resumeInput.files && resumeInput.files[0];
+        if (!file) return;
+        const isPDF = file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
+        const tooLarge = file.size > 10 * 1024 * 1024;
+        if (!isPDF) {
+          resumeError.textContent = 'Please upload a PDF file.';
+          resumeError.style.display = 'block';
+          resumeInput.value = '';
+        } else if (tooLarge) {
+          resumeError.textContent = 'File exceeds 10 MB limit.';
+          resumeError.style.display = 'block';
+          resumeInput.value = '';
+        }
+      });
+    }
+
+    // Form submission handler
+    const form = document.getElementById('employmentForm');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        // Convert multiple availability checkboxes to CSV
+        const checked = Array.from(document.querySelectorAll('input[name="availability"]:checked')).map(i => i.value);
+        let hidden = document.querySelector('input[name="availability_csv"]');
+        if (!hidden) {
+          hidden = document.createElement('input');
+          hidden.type = 'hidden';
+          hidden.name = 'availability_csv';
+          form.appendChild(hidden);
+        }
+        hidden.value = checked.join(',');
+      });
+    }
+  }
+
+  /**
+   * Cleanup when component is removed
+   */
+  cleanup() {
+    // Remove event listeners if needed
+  }
+}
+
+
+
+
+// Component: job-details
+/**
+ * Job Details Component
+ * Contains HTML, CSS, and JS for displaying individual job details
+ */
+
+class JobDetails {
+  constructor(params = {}) {
+    this.jobId = params.id;
+    this.job = null;
+    this.loading = true;
+  }
+
+  /**
+   * Load data from JSON file
+   */
+  async loadData() {
+    try {
+      const jobs = [{"id": 1, "title": "Field Service Technician", "location": "Denver, CO", "type": "Full-Time", "salary": "$45,000 - $65,000", "posted": "Oct 5, 2025", "excerpt": "We are seeking a skilled Field Service Technician to install, inspect, and maintain fire protection equipment. 2+ years experience required.", "experience": "2-5 Years", "status": "Open", "description": "We are seeking a skilled and motivated Field Service Technician to join our team. The ideal candidate will be responsible for installing, inspecting, maintaining, and repairing fire protection and safety equipment at customer locations throughout the Denver metro area.", "responsibilities": ["Install, inspect, test, and maintain fire extinguishers, emergency lighting, exit signs, and fire suppression systems", "Perform scheduled preventive maintenance and emergency repair services", "Diagnose equipment malfunctions and perform necessary repairs or replacements", "Complete accurate service documentation and customer reports", "Provide excellent customer service and communicate technical information clearly", "Ensure compliance with NFPA codes and local fire safety regulations", "Maintain service vehicle, tools, and equipment inventory", "Respond to emergency service calls as needed"], "requiredQualifications": ["High school diploma or GED", "Valid driver's license with clean driving record", "2+ years of experience in fire protection, HVAC, electrical, or related field", "Strong mechanical aptitude and troubleshooting skills", "Ability to lift up to 50 lbs and work in various environments", "Excellent customer service and communication skills", "Ability to work independently and manage time effectively", "Willingness to participate in on-call rotation"], "preferredQualifications": ["NICET Fire Protection certification", "State fire extinguisher technician license", "Experience with fire alarm systems", "Technical training or certifications in fire protection systems", "Military veteran with relevant technical experience"], "benefits": ["Competitive salary based on experience", "Health, dental, and vision insurance", "401(k) with company match", "Paid time off and holidays", "Company vehicle and equipment provided", "Ongoing training and certification opportunities", "Career advancement opportunities"]}, {"id": 2, "title": "Sales Representative", "location": "Colorado Springs, CO", "type": "Full-Time", "salary": "$50,000 - $80,000 + Commission", "posted": "Oct 3, 2025", "excerpt": "Join our sales team to provide fire safety solutions to commercial clients. Experience in B2B sales preferred.", "experience": "3+ Years", "status": "Open", "description": "We are looking for an experienced Sales Representative to join our growing team. You will be responsible for developing new business relationships and maintaining existing client accounts in the commercial fire safety market.", "responsibilities": ["Identify and pursue new business opportunities in the commercial sector", "Build and maintain relationships with property managers, facility managers, and business owners", "Conduct site assessments and provide fire safety solutions", "Prepare and present proposals and quotes", "Meet or exceed sales targets and quotas", "Collaborate with technical team to ensure customer satisfaction", "Maintain accurate records in CRM system", "Attend industry events and networking opportunities"], "requiredQualifications": ["Bachelor's degree or equivalent experience", "3+ years of B2B sales experience", "Strong communication and presentation skills", "Ability to build rapport and maintain relationships", "Self-motivated and goal-oriented", "Valid driver's license", "Proficiency with CRM software"], "preferredQualifications": ["Experience in fire safety or construction industry", "Knowledge of fire codes and regulations", "Existing network of commercial contacts", "Technical sales background"], "benefits": ["Base salary plus commission", "Health, dental, and vision insurance", "401(k) with company match", "Paid time off and holidays", "Company vehicle or mileage reimbursement", "Unlimited earning potential", "Professional development opportunities"]}, {"id": 3, "title": "Warehouse Associate", "location": "Aurora, CO", "type": "Full-Time", "salary": "$35,000 - $45,000", "posted": "Sep 28, 2025", "excerpt": "Manage inventory, receive shipments, and prepare equipment for field technicians. Forklift certification a plus.", "experience": "1+ Years", "status": "Open", "description": "We are seeking a reliable Warehouse Associate to join our operations team. This role involves managing inventory, processing orders, and ensuring our field technicians have the equipment they need.", "responsibilities": ["Receive and inspect incoming shipments", "Organize and maintain warehouse inventory", "Prepare equipment and materials for field service calls", "Operate forklift and other warehouse equipment", "Maintain accurate inventory records", "Assist with shipping and receiving", "Keep warehouse clean and organized", "Support field technicians with equipment needs"], "requiredQualifications": ["High school diploma or GED", "1+ years of warehouse or logistics experience", "Ability to lift up to 75 lbs", "Attention to detail and accuracy", "Basic computer skills", "Ability to work in a fast-paced environment"], "preferredQualifications": ["Forklift certification", "Experience with inventory management systems", "Knowledge of fire safety equipment", "OSHA certification"], "benefits": ["Competitive hourly wage", "Health, dental, and vision insurance", "401(k) with company match", "Paid time off and holidays", "Overtime opportunities", "Safe working environment", "Career growth opportunities"]}, {"id": 4, "title": "Administrative Assistant", "location": "Denver, CO", "type": "Part-Time", "salary": "$18 - $24/hour", "posted": "Sep 25, 2025", "excerpt": "Provide administrative support including scheduling, customer communications, and office management. 20-30 hours per week.", "experience": "2+ Years", "status": "Open", "description": "We are looking for a part-time Administrative Assistant to support our office operations. This role involves customer service, scheduling, and general administrative tasks.", "responsibilities": ["Answer phones and respond to customer inquiries", "Schedule service appointments and coordinate with technicians", "Process orders and maintain customer records", "Assist with data entry and filing", "Prepare documents and reports", "Manage office supplies and inventory", "Support management with administrative tasks", "Maintain organized filing systems"], "requiredQualifications": ["High school diploma or GED", "2+ years of administrative experience", "Excellent communication skills", "Proficiency with Microsoft Office", "Strong organizational skills", "Ability to multitask", "Professional demeanor"], "preferredQualifications": ["Associate's degree", "Experience in customer service", "Knowledge of scheduling software", "Experience in fire safety or construction industry"], "benefits": ["Flexible schedule", "Competitive hourly rate", "Paid time off", "Professional development opportunities", "Friendly work environment"]}];
+      this.job = jobs.find(job => job.id === parseInt(this.jobId));
+      
+      if (!this.job) {
+        throw new Error('Job not found');
+      }
+      
+      this.loading = false;
+      
+      // Update the page with loaded data
+      this.updatePage();
+    } catch (error) {
+      console.error('Error loading job:', error);
+      this.loading = false;
+      const container = document.getElementById('app-container');
+      if (container) {
+        container.innerHTML = `
+          <div class="alert alert-danger">
+            <h4>Job Not Found</h4>
+            <p>Sorry, we couldn't find the job you're looking for.</p>
+            <a href="#" data-route="/" class="btn btn-primary">Back to Jobs</a>
+          </div>
+        `;
+      }
+    }
+  }
+
+  /**
+   * Update page content with job data
+   */
+  updatePage() {
+    if (!this.job) return;
+    
+    // Update title
+    document.title = `${this.job.title} - Fire & Safety Equipment Co.`;
+    
+    // Update content
+    const container = document.getElementById('app-container');
+    if (container) {
+      container.innerHTML = this.render();
+    }
+  }
+
+  /**
+   * Render the HTML for this component
+   */
+  render() {
+    if (this.loading || !this.job) {
+      return `
+        <div class="text-center py-5">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      `;
+    }
+
+    const formatDate = (dateStr) => {
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                     'July', 'August', 'September', 'October', 'November', 'December'];
+      const parts = dateStr.split(' ');
+      if (parts.length >= 3) {
+        return `${parts[0]} ${parts[1]}, ${parts[2]}`;
+      }
+      return dateStr;
+    };
+
+    const renderList = (items) => {
+      if (!items || !Array.isArray(items)) return '';
+      return items.map(item => `<li>${item}</li>`).join('');
+    };
+
+    return `
+      <a href="#" data-route="/" class="back-link">
+        <i class="bi bi-arrow-left"></i>
+        Back to All Jobs
+      </a>
+
+      <h1 class="mb-4">${this.job.title}</h1>
+
+      <div class="job-meta">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="job-meta-item">
+              <div class="job-meta-label">Location</div>
+              <div class="job-meta-value">${this.job.location}</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="job-meta-item">
+              <div class="job-meta-label">Employment Type</div>
+              <div class="job-meta-value">${this.job.type}</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="job-meta-item">
+              <div class="job-meta-label">Salary Range</div>
+              <div class="job-meta-value">${this.job.salary}</div>
+            </div>
+          </div>
+          ${this.job.experience ? `
+          <div class="col-md-4">
+            <div class="job-meta-item">
+              <div class="job-meta-label">Experience</div>
+              <div class="job-meta-value">${this.job.experience}</div>
+            </div>
+          </div>
+          ` : ''}
+          <div class="col-md-4">
+            <div class="job-meta-item">
+              <div class="job-meta-label">Posted Date</div>
+              <div class="job-meta-value">${formatDate(this.job.posted)}</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="job-meta-item">
+              <div class="job-meta-label">Status</div>
+              <div class="job-meta-value text-success">${this.job.status || 'Open'}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      ${this.job.description ? `
+      <div class="section-divider"></div>
+      <h3>Job Description</h3>
+      <p>${this.job.description}</p>
+      ` : ''}
+
+      ${this.job.responsibilities && this.job.responsibilities.length > 0 ? `
+      <div class="section-divider"></div>
+      <h3>Key Responsibilities</h3>
+      <ul>
+        ${renderList(this.job.responsibilities)}
+      </ul>
+      ` : ''}
+
+      ${this.job.requiredQualifications && this.job.requiredQualifications.length > 0 ? `
+      <div class="section-divider"></div>
+      <h3>Required Qualifications</h3>
+      <ul>
+        ${renderList(this.job.requiredQualifications)}
+      </ul>
+      ` : ''}
+
+      ${this.job.preferredQualifications && this.job.preferredQualifications.length > 0 ? `
+      <div class="section-divider"></div>
+      <h3>Preferred Qualifications</h3>
+      <ul>
+        ${renderList(this.job.preferredQualifications)}
+      </ul>
+      ` : ''}
+
+      ${this.job.benefits && this.job.benefits.length > 0 ? `
+      <div class="section-divider"></div>
+      <h3>Benefits</h3>
+      <ul>
+        ${renderList(this.job.benefits)}
+      </ul>
+      ` : ''}
+
+      <div class="section-divider"></div>
+
+      <div class="text-center">
+        <a href="#" data-route="/apply" class="btn btn-primary btn-lg px-5 py-3">
+          <i class="bi bi-file-earmark-text me-2"></i>Apply for This Position
+        </a>
+        <p class="mt-3 text-muted">Fire & Safety Equipment Co. is an Equal Opportunity Employer</p>
+      </div>
+    `;
+  }
+
+  /**
+   * Get component-specific CSS
+   */
+  getCSS() {
+    return `
+      .job-meta {
+        background: #f8f9fa;
+        border: 1px solid #dcdcdc;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .job-meta-item {
+        margin-bottom: 0.75rem;
+      }
+
+      .job-meta-label {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        color: #6c757d;
+      }
+
+      .job-meta-value {
+        font-size: 1.1rem;
+        color: #000;
+      }
+    `;
+  }
+
+  /**
+   * Initialize component JavaScript
+   */
+  init() {
+    // Component-specific initialization if needed
+  }
+
+  /**
+   * Cleanup when component is removed
+   */
+  cleanup() {
+    // Remove event listeners if needed
+  }
+}
+
+
+
+// Component: admin-jobs
+/**
+ * Admin Jobs Component
+ * Contains HTML, CSS, and JS for the admin job management page
+ */
+
+class AdminJobs {
+  constructor() {
+    this.jobs = [];
+    this.loading = true;
+  }
+
+  /**
+   * Load data from JSON file
+   */
+  async loadData() {
+    try {
+      this.jobs = [{"id": 1001, "title": "Field Service Technician", "location": "Denver, CO", "type": "Full-Time", "status": "Open", "applications": 18, "posted": "Oct 5, 2025"}, {"id": 1002, "title": "Sales Representative", "location": "Colorado Springs, CO", "type": "Full-Time", "status": "Open", "applications": 12, "posted": "Oct 3, 2025"}, {"id": 1003, "title": "Warehouse Associate", "location": "Aurora, CO", "type": "Full-Time", "status": "Open", "applications": 9, "posted": "Sep 28, 2025"}, {"id": 1004, "title": "Administrative Assistant", "location": "Denver, CO", "type": "Part-Time", "status": "Open", "applications": 8, "posted": "Sep 25, 2025"}, {"id": 1005, "title": "Fire Alarm Technician", "location": "Denver, CO", "type": "Full-Time", "status": "Closed", "applications": 15, "posted": "Aug 12, 2025"}];
+      this.loading = false;
+      
+      // Update the jobs table with loaded data
+      const tbody = document.getElementById('jobs-table-body');
+      if (tbody) {
+        tbody.innerHTML = this.renderJobsTable();
+      }
+      
+      // Update stats
+      this.updateStats();
+    } catch (error) {
+      console.error('Error loading jobs:', error);
+      this.loading = false;
+      const tbody = document.getElementById('jobs-table-body');
+      if (tbody) {
+        tbody.innerHTML = '<tr><td colspan="8" class="text-center"><div class="alert alert-danger">Error loading jobs. Please try again later.</div></td></tr>';
+      }
+    }
+  }
+
+  /**
+   * Update stats cards based on loaded data
+   */
+  updateStats() {
+    const totalJobs = this.jobs.length;
+    const openJobs = this.jobs.filter(j => j.status === 'Open').length;
+    const closedJobs = this.jobs.filter(j => j.status === 'Closed').length;
+    const totalApplications = this.jobs.reduce((sum, j) => sum + j.applications, 0);
+
+    // Update stats numbers if elements exist
+    const statsCards = document.querySelectorAll('.stats-number');
+    if (statsCards.length >= 4) {
+      statsCards[0].textContent = totalJobs;
+      statsCards[1].textContent = openJobs;
+      statsCards[2].textContent = closedJobs;
+      statsCards[3].textContent = totalApplications;
+    }
+  }
+
+  /**
+   * Render the HTML for this component
+   */
+  render() {
+    return `
+      <!-- Stats Row -->
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">12</div>
+            <div class="stats-label">Total Jobs</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">4</div>
+            <div class="stats-label">Open Positions</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">8</div>
+            <div class="stats-label">Closed/Filled</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">47</div>
+            <div class="stats-label">Total Applications</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Manage Job Posts</h2>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newJobModal">
+          <i class="bi bi-plus-circle me-2"></i>Create New Job
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Search jobs..." id="search-jobs">
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" id="filter-status">
+            <option value="">All Status</option>
+            <option value="open">Open</option>
+            <option value="closed">Closed</option>
+            <option value="draft">Draft</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" id="filter-location">
+            <option value="">All Locations</option>
+            <option value="denver">Denver</option>
+            <option value="colorado-springs">Colorado Springs</option>
+            <option value="aurora">Aurora</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Jobs Table -->
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Job Title</th>
+              <th>Location</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Applications</th>
+              <th>Posted Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="jobs-table-body">
+            ${this.loading ? '<tr><td colspan="8" class="text-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></td></tr>' : this.renderJobsTable()}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Previous</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- New Job Modal -->
+      <div class="modal fade" id="newJobModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header" style="background:#000;color:#fff;">
+              <h5 class="modal-title">Create New Job Post</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <form id="newJobForm">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label fw-bold">Job Title *</label>
+                    <input type="text" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold">Location *</label>
+                    <input type="text" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold">Employment Type *</label>
+                    <select class="form-select" required>
+                      <option value="">Select...</option>
+                      <option>Full-Time</option>
+                      <option>Part-Time</option>
+                      <option>Temporary</option>
+                      <option>Seasonal</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold">Salary Range</label>
+                    <input type="text" class="form-control" placeholder="e.g., $45,000 - $65,000">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold">Experience Level</label>
+                    <input type="text" class="form-control" placeholder="e.g., 2-5 Years">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold">Job Description *</label>
+                    <textarea class="form-control" rows="4" required></textarea>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-bold">Status *</label>
+                    <select class="form-select" required>
+                      <option value="draft">Draft</option>
+                      <option value="open">Open (Publish)</option>
+                      <option value="closed">Closed</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" id="createJobBtn">Create Job Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  /**
+   * Render jobs table rows
+   */
+  renderJobsTable(filteredJobs = null) {
+    const jobsToRender = filteredJobs || this.jobs;
+    return jobsToRender.map(job => `
+      <tr>
+        <td>#${job.id}</td>
+        <td><strong>${job.title}</strong></td>
+        <td>${job.location}</td>
+        <td>${job.type}</td>
+        <td><span class="badge ${job.status === 'Open' ? 'bg-success' : 'bg-secondary'}">${job.status}</span></td>
+        <td>${job.applications}</td>
+        <td>${job.posted}</td>
+        <td>
+          <div class="action-buttons">
+            <button class="btn btn-sm btn-outline-dark" title="Edit">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-dark" title="View Applications">
+              <i class="bi bi-people"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-dark" title="View Public Page">
+              <i class="bi bi-eye"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-danger" title="Close Position">
+              <i class="bi bi-x-circle"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  /**
+   * Get component-specific CSS
+   */
+  getCSS() {
+    return `
+      /* Component-specific styles if needed */
+    `;
+  }
+
+  /**
+   * Initialize component JavaScript
+   */
+  init() {
+    // Search functionality
+    const searchInput = document.getElementById('search-jobs');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => this.applyFilters());
+    }
+
+    // Filter functionality
+    const statusFilter = document.getElementById('filter-status');
+    const locationFilter = document.getElementById('filter-location');
+    
+    if (statusFilter) {
+      statusFilter.addEventListener('change', () => this.applyFilters());
+    }
+    if (locationFilter) {
+      locationFilter.addEventListener('change', () => this.applyFilters());
+    }
+
+    // Create job button
+    const createBtn = document.getElementById('createJobBtn');
+    if (createBtn) {
+      createBtn.addEventListener('click', () => {
+        // Handle job creation
+        console.log('Create job clicked');
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('newJobModal'));
+        if (modal) modal.hide();
+      });
+    }
+  }
+
+  /**
+   * Apply filters to jobs table
+   */
+  applyFilters() {
+    const searchTerm = document.getElementById('search-jobs')?.value.toLowerCase() || '';
+    const status = document.getElementById('filter-status')?.value.toLowerCase() || '';
+    const location = document.getElementById('filter-location')?.value.toLowerCase() || '';
+
+    const filtered = this.jobs.filter(job => {
+      const matchesSearch = !searchTerm || job.title.toLowerCase().includes(searchTerm);
+      const matchesStatus = !status || job.status.toLowerCase() === status;
+      const matchesLocation = !location || job.location.toLowerCase().includes(location);
+      return matchesSearch && matchesStatus && matchesLocation;
+    });
+
+    const tbody = document.getElementById('jobs-table-body');
+    if (tbody) {
+      tbody.innerHTML = this.renderJobsTable(filtered);
+    }
+  }
+
+  /**
+   * Cleanup when component is removed
+   */
+  cleanup() {
+    // Remove event listeners if needed
+  }
+}
+
+
+
+// Component: admin-applicants
+/**
+ * Admin Applicants Component
+ * Contains HTML, CSS, and JS for the admin applicants page
+ */
+
+class AdminApplicants {
+  constructor() {
+    this.applicants = [];
+    this.loading = true;
+  }
+
+  /**
+   * Load data from JSON file
+   */
+  async loadData() {
+    try {
+      this.applicants = [{"id": 2047, "name": "Michael Rodriguez", "email": "m.rodriguez@email.com", "phone": "(303) 555-0142", "position": "Field Service Technician", "veteran": true, "resume": true, "status": "New", "date": "Oct 10, 2025"}, {"id": 2046, "name": "Sarah Johnson", "email": "sarah.j@email.com", "phone": "(720) 555-0198", "position": "Sales Representative", "veteran": false, "resume": true, "status": "Under Review", "date": "Oct 9, 2025"}, {"id": 2045, "name": "David Chen", "email": "dchen@email.com", "phone": "(303) 555-0176", "position": "Field Service Technician", "veteran": true, "resume": true, "status": "Interviewed", "date": "Oct 8, 2025"}, {"id": 2044, "name": "Jennifer Martinez", "email": "j.martinez@email.com", "phone": "(303) 555-0134", "position": "Administrative Assistant", "veteran": false, "resume": false, "status": "Under Review", "date": "Oct 7, 2025"}, {"id": 2043, "name": "Robert Williams", "email": "rwilliams@email.com", "phone": "(720) 555-0187", "position": "Warehouse Associate", "veteran": true, "resume": true, "status": "New", "date": "Oct 6, 2025"}, {"id": 2042, "name": "Emily Taylor", "email": "emily.t@email.com", "phone": "(303) 555-0165", "position": "Field Service Technician", "veteran": false, "resume": true, "status": "Hired", "date": "Oct 5, 2025"}, {"id": 2041, "name": "James Anderson", "email": "j.anderson@email.com", "phone": "(720) 555-0123", "position": "Sales Representative", "veteran": true, "resume": true, "status": "Rejected", "date": "Oct 4, 2025"}, {"id": 2040, "name": "Patricia Brown", "email": "p.brown@email.com", "phone": "(303) 555-0145", "position": "Administrative Assistant", "veteran": false, "resume": true, "status": "Under Review", "date": "Oct 3, 2025"}];
+      this.loading = false;
+      
+      // Update the applicants table with loaded data
+      const tbody = document.getElementById('applicants-table-body');
+      if (tbody) {
+        tbody.innerHTML = this.renderApplicantsTable();
+      }
+      
+      // Update stats
+      this.updateStats();
+    } catch (error) {
+      console.error('Error loading applicants:', error);
+      this.loading = false;
+      const tbody = document.getElementById('applicants-table-body');
+      if (tbody) {
+        tbody.innerHTML = '<tr><td colspan="10" class="text-center"><div class="alert alert-danger">Error loading applicants. Please try again later.</div></td></tr>';
+      }
+    }
+  }
+
+  /**
+   * Update stats cards based on loaded data
+   */
+  updateStats() {
+    const total = this.applicants.length;
+    const newCount = this.applicants.filter(a => a.status === 'New').length;
+    const reviewingCount = this.applicants.filter(a => a.status === 'Under Review').length;
+    const interviewedCount = this.applicants.filter(a => a.status === 'Interviewed').length;
+
+    // Update stats numbers if elements exist
+    const statsCards = document.querySelectorAll('.stats-number');
+    if (statsCards.length >= 4) {
+      statsCards[0].textContent = total;
+      statsCards[1].textContent = newCount;
+      statsCards[2].textContent = reviewingCount;
+      statsCards[3].textContent = interviewedCount;
+    }
+  }
+
+  /**
+   * Render the HTML for this component
+   */
+  render() {
+    return `
+      <!-- Stats Row -->
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">47</div>
+            <div class="stats-label">Total Applications</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">12</div>
+            <div class="stats-label">New (Unreviewed)</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">23</div>
+            <div class="stats-label">Under Review</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-card">
+            <div class="stats-number">5</div>
+            <div class="stats-label">Interviewed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Employment Applications</h2>
+        <button class="btn btn-outline-dark">
+          <i class="bi bi-download me-2"></i>Export to CSV
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Search applicants..." id="search-applicants">
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" id="filter-status">
+            <option value="">All Status</option>
+            <option value="new">New</option>
+            <option value="reviewing">Under Review</option>
+            <option value="interviewed">Interviewed</option>
+            <option value="hired">Hired</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" id="filter-position">
+            <option value="">All Positions</option>
+            <option value="1001">Field Service Tech</option>
+            <option value="1002">Sales Representative</option>
+            <option value="1003">Warehouse Associate</option>
+            <option value="1004">Admin Assistant</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" id="filter-date">
+            <option value="">All Dates</option>
+            <option value="today">Today</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+          </select>
+        </div>
+        <div class="col-md-1">
+          <select class="form-select" id="filter-veteran">
+            <option value="">Veteran</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Applicants Table -->
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Applicant Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Position Applied</th>
+              <th>Veteran</th>
+              <th>Resume</th>
+              <th>Status</th>
+              <th>Applied Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="applicants-table-body">
+            ${this.loading ? '<tr><td colspan="10" class="text-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></td></tr>' : this.renderApplicantsTable()}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Previous</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    `;
+  }
+
+  /**
+   * Render applicants table rows
+   */
+  renderApplicantsTable(filteredApplicants = null) {
+    const applicantsToRender = filteredApplicants || this.applicants;
+    
+    const getStatusBadge = (status) => {
+      const badges = {
+        'New': 'bg-warning text-dark',
+        'Under Review': 'bg-primary',
+        'Interviewed': 'bg-info text-dark',
+        'Hired': 'bg-success',
+        'Rejected': 'bg-danger'
+      };
+      return badges[status] || 'bg-secondary';
+    };
+
+    return applicantsToRender.map(applicant => `
+      <tr>
+        <td>#${applicant.id}</td>
+        <td class="applicant-name">${applicant.name}</td>
+        <td>${applicant.email}</td>
+        <td>${applicant.phone}</td>
+        <td>${applicant.position}</td>
+        <td>${applicant.veteran ? '<i class="bi bi-check-circle-fill text-success"></i>' : '<i class="bi bi-x-circle text-muted"></i>'}</td>
+        <td>
+          ${applicant.resume 
+            ? `<a href="#" class="resume-link" title="Download Resume"><i class="bi bi-file-earmark-pdf"></i> View</a>`
+            : '<span class="text-muted">No Resume</span>'
+          }
+        </td>
+        <td><span class="badge ${getStatusBadge(applicant.status)}">${applicant.status}</span></td>
+        <td>${applicant.date}</td>
+        <td>
+          <div class="action-buttons">
+            <a href="#" data-route="/admin/applicant/${applicant.id}" class="btn btn-sm btn-outline-dark" title="View Application">
+              <i class="bi bi-eye"></i>
+            </a>
+            <button class="btn btn-sm btn-outline-dark" title="Update Status">
+              <i class="bi bi-pencil"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  /**
+   * Get component-specific CSS
+   */
+  getCSS() {
+    return `
+      /* Component-specific styles if needed */
+    `;
+  }
+
+  /**
+   * Initialize component JavaScript
+   */
+  init() {
+    // Search functionality
+    const searchInput = document.getElementById('search-applicants');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => this.applyFilters());
+    }
+
+    // Filter functionality
+    const filters = ['filter-status', 'filter-position', 'filter-date', 'filter-veteran'];
+    filters.forEach(filterId => {
+      const filter = document.getElementById(filterId);
+      if (filter) {
+        filter.addEventListener('change', () => this.applyFilters());
+      }
+    });
+  }
+
+  /**
+   * Apply filters to applicants table
+   */
+  applyFilters() {
+    const searchTerm = document.getElementById('search-applicants')?.value.toLowerCase() || '';
+    const status = document.getElementById('filter-status')?.value.toLowerCase() || '';
+    const position = document.getElementById('filter-position')?.value || '';
+    const veteran = document.getElementById('filter-veteran')?.value || '';
+
+    const filtered = this.applicants.filter(applicant => {
+      const matchesSearch = !searchTerm || 
+        applicant.name.toLowerCase().includes(searchTerm) ||
+        applicant.email.toLowerCase().includes(searchTerm);
+      const matchesStatus = !status || applicant.status.toLowerCase().replace(' ', '-') === status;
+      const matchesVeteran = !veteran || 
+        (veteran === 'yes' && applicant.veteran) ||
+        (veteran === 'no' && !applicant.veteran);
+      return matchesSearch && matchesStatus && matchesVeteran;
+    });
+
+    const tbody = document.getElementById('applicants-table-body');
+    if (tbody) {
+      tbody.innerHTML = this.renderApplicantsTable(filtered);
+    }
+  }
+
+  /**
+   * Cleanup when component is removed
+   */
+  cleanup() {
+    // Remove event listeners if needed
+  }
+}
+
+
+
+// SPA Router
+/**
+ * SPA Router and Component Loader
+ * Handles routing and dynamically loads components
+ */
+
+class SPARouter {
+  constructor() {
+    // Detect if running from file:// protocol (for static file deployment)
+    this.isFileProtocol = window.location.protocol === 'file:';
+    this.useHashRouting = this.isFileProtocol;
+    this.routes = new Map();
+    this.currentComponent = null;
+    this.currentRoute = null;
+  }
+
+  /**
+   * Register a route with its component
+   * @param {string} path - Route path
+   * @param {string} componentFile - Path to component JS file
+   * @param {object} options - Additional options (title, nav, etc.)
+   */
+  register(path, componentFile, options = {}) {
+    this.routes.set(path, {
+      componentFile,
+      title: options.title || 'Fire & Safety Equipment Co.',
+      isAdmin: options.isAdmin || false,
+      navItems: options.navItems || [],
+      adminNav: options.adminNav || null,
+      mainClass: options.mainClass || 'page-wrap container'
+    });
+  }
+
+  /**
+   * Navigate to a route
+   */
+  async navigate(path) {// Normalize path - ensure root is exactly '/'
+    const normalizedPath = path === '' || path === '/' ? '/' : path;
+    
+    // Update URL without page reload
+    // Use hash-based routing for file:// protocol, pushState for http/https
+    if (this.useHashRouting) {
+      window.location.hash = normalizedPath === '/' ? '' : normalizedPath;
+    } else {
+      try {
+        window.history.pushState({ path: normalizedPath }, '', normalizedPath);
+      } catch (e) {
+        // Fallback to hash routing if pushState fails
+        this.useHashRouting = true;
+        window.location.hash = normalizedPath === '/' ? '' : normalizedPath;
+      }
+    }
+    
+    // Check for dynamic routes (e.g., /job/:id)
+    let route = this.routes.get(normalizedPath);
+    let routeParams = {};
+    
+    if (!route) {
+      // Try to match dynamic routes
+      for (const [routePath, routeConfig] of this.routes.entries()) {
+        if (routePath.includes(':')) {
+          const pattern = routePath.replace(/:[^/]+/g, '([^/]+)');
+          const regex = new RegExp(`^${pattern}$`);
+          const match = normalizedPath.match(regex);
+          if (match) {
+            const paramNames = routePath.match(/:([^/]+)/g)?.map(p => p.slice(1)) || [];
+            route = routeConfig;
+            paramNames.forEach((name, index) => {
+              routeParams[name] = match[index + 1];
+            });
+            break;
+          }
+        }
+      }
+    }
+    
+    // Fallback to root route
+    if (!route) {
+      route = this.routes.get('/');
+    }
+    
+    if (!route) {
+      console.error(`Route not found: ${normalizedPath}`);
+      return;
+    }
+    
+    console.log(`Navigating to: ${normalizedPath}, loading component: ${route.componentFile}`);
+
+    // Update document title
+    document.title = route.title;
+
+    // Update brand text if needed
+    const brandText = document.getElementById('brand-text');
+    if (route.brandText) {
+      brandText.textContent = route.brandText;
+    } else {
+      brandText.textContent = 'Fire & Safety Equipment Co.';
+    }
+
+    // Update navigation
+    this.updateNavigation(route);
+
+    // Update admin nav
+    this.updateAdminNav(route);
+
+    // Update main container class
+    const container = document.getElementById('app-container');
+    container.className = route.mainClass;
+
+    // Clean up previous component
+    if (this.currentComponent && this.currentComponent.cleanup) {
+      this.currentComponent.cleanup();
+    }
+
+    // Load and render component
+    try {
+      const Component = await this.loadComponent(route.componentFile);
+      this.currentComponent = new Component(routeParams);
+      
+      // Render component HTML (may show loading state)
+      container.innerHTML = this.currentComponent.render();
+      
+      // Inject component CSS if any
+      this.injectCSS(this.currentComponent.getCSS());
+      
+      // Load data and initialize component JS
+      if (this.currentComponent.loadData) {
+        await this.currentComponent.loadData();
+      }
+      
+      // Initialize component JS
+      if (this.currentComponent.init) {
+        this.currentComponent.init();
+      }
+    } catch (error) {
+      console.error('Error loading component:', error);
+      container.innerHTML = '<div class="alert alert-danger">Error loading page. Please try again.</div>';
+    }
+  }
+
+  /**
+   * Load component module
+   */
+  async loadComponent(componentFile) {
+    // Extract component name from file path
+    const match = componentFile.match(/\/([^/]+)\.js$/);
+    if (!match) {
+      throw new Error(`Invalid component file: ${componentFile}`);
+    }
+    const componentName = match[1];
+    
+    // Map component names to classes
+    const componentMap = {
+      'jobs-list': JobsList,
+      'dashboard': Dashboard,
+      'application-form': ApplicationForm,
+      'job-details': JobDetails,
+      'admin-jobs': AdminJobs,
+      'admin-applicants': AdminApplicants
+    };
+    
+    const ComponentClass = componentMap[componentName];
+    if (!ComponentClass) {
+      throw new Error(`Component not found: ${componentName}`);
+    }
+    
+    return ComponentClass;
+  }
+
+  /**
+   * Inject component CSS
+   */
+  injectCSS(css) {
+    // Remove previous component styles
+    const existingStyle = document.getElementById('component-styles');
+    if (existingStyle) {
+      existingStyle.remove();
+    }
+
+    if (css) {
+      const style = document.createElement('style');
+      style.id = 'component-styles';
+      style.textContent = css;
+      document.head.appendChild(style);
+    }
+  }
+
+  /**
+   * Update main navigation
+   */
+  updateNavigation(route) {
+    const navContainer = document.getElementById('main-nav');
+    navContainer.innerHTML = '';
+
+    if (route.navItems && route.navItems.length > 0) {
+      route.navItems.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'nav-item';
+        const a = document.createElement('a');
+        a.className = `nav-link ${item.active ? 'active' : ''}`;
+        a.href = '#';
+        a.setAttribute('data-route', item.path);
+        if (item.icon) {
+          a.innerHTML = `<i class="${item.icon}"></i> ${item.label}`;
+        } else {
+          a.textContent = item.label;
+        }
+        li.appendChild(a);
+        navContainer.appendChild(li);
+      });
+    }
+  }
+
+  /**
+   * Update admin navigation
+   */
+  updateAdminNav(route) {
+    const adminNav = document.getElementById('admin-nav');
+    
+    if (route.isAdmin && route.adminNav) {
+      adminNav.style.display = 'block';
+      adminNav.innerHTML = route.adminNav;
+    } else {
+      adminNav.style.display = 'none';
+      adminNav.innerHTML = '';
+    }
+  }
+
+  /**
+   * Initialize router
+   */
+  init() {// Handle browser back/forward buttons
+    if (this.useHashRouting) {
+      // For hash-based routing, listen to hashchange events
+      window.addEventListener('hashchange', () => {
+        const hash = window.location.hash.slice(1) || '/';
+        this.navigate(hash);
+      });
+    } else {
+      window.addEventListener('popstate', (e) => {
+        const path = e.state?.path || window.location.pathname;
+        this.navigate(path);
+      });
+    }
+
+    // Handle link clicks
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('[data-route]');
+      if (link) {
+        e.preventDefault();
+        const path = link.getAttribute('data-route');
+        this.navigate(path);
+      }
+    });
+
+    // Navigate to current route on load
+    if (this.useHashRouting) {
+      const hash = window.location.hash.slice(1) || '/';
+      this.navigate(hash);
+    } else {
+      const initialPath = window.location.pathname === '/' ? '/' : window.location.pathname;
+      this.navigate(initialPath);
+    }
+  }
+}
+
+// Create router instance
+const router = new SPARouter();
+
+// Register routes
+// IMPORTANT: Register root route FIRST to ensure it's matched correctly
+router.register('/', '/static/js/components/jobs-list.js', {
+  title: 'Careers - Fire & Safety Equipment Co.',
+  navItems: [
+    { path: '/dashboard', label: 'Dashboard' },
+    { path: '/', label: 'Careers', active: true }
+  ]
+});
+
+router.register('/dashboard', '/static/js/components/dashboard.js', {
+  title: 'Dashboard - Fire & Safety Equipment Co.',
+  navItems: [
+    { path: '/dashboard', label: 'Dashboard', active: true },
+    { path: '/', label: 'Careers' }
+  ]
+});
+
+router.register('/jobs', '/static/js/components/jobs-list.js', {
+  title: 'Careers - Fire & Safety Equipment Co.',
+  navItems: [
+    { path: '/dashboard', label: 'Dashboard' },
+    { path: '/', label: 'Careers', active: true }
+  ]
+});
+
+router.register('/apply', '/static/js/components/application-form.js', {
+  title: 'Employment Application - Fire & Safety Equipment Co.',
+  navItems: [
+    { path: '/dashboard', label: 'Dashboard' },
+    { path: '/', label: 'Careers' }
+  ]
+});
+
+router.register('/job/:id', '/static/js/components/job-details.js', {
+  title: 'Job Details - Fire & Safety Equipment Co.',
+  navItems: [
+    { path: '/dashboard', label: 'Dashboard' },
+    { path: '/', label: 'Careers' }
+  ]
+});
+
+router.register('/admin/jobs', '/static/js/components/admin-jobs.js', {
+  title: 'Manage Job Posts - Admin Dashboard',
+  isAdmin: true,
+  brandText: 'Fire & Safety Equipment Co. - Admin',
+  navItems: [
+    { path: '/dashboard', label: 'Dashboard', icon: 'bi bi-speedometer2' },
+    { path: '/', label: 'View Public Site', icon: 'bi bi-box-arrow-up-right' },
+    { path: '#', label: 'Admin User', icon: 'bi bi-person-circle' }
+  ],
+  adminNav: `
+    <div class="admin-nav">
+      <div class="container-fluid px-4">
+        <a href="#" data-route="/admin/jobs" class="active">Job Posts</a>
+        <a href="#" data-route="/admin/applicants">Applicants</a>
+      </div>
+    </div>
+  `,
+  mainClass: 'container-fluid px-4'
+});
+
+router.register('/admin/applicants', '/static/js/components/admin-applicants.js', {
+  title: 'Applicants - Admin Dashboard',
+  isAdmin: true,
+  brandText: 'Fire & Safety Equipment Co. - Admin',
+  navItems: [
+    { path: '/dashboard', label: 'Dashboard', icon: 'bi bi-speedometer2' },
+    { path: '/', label: 'View Public Site', icon: 'bi bi-box-arrow-up-right' },
+    { path: '#', label: 'Admin User', icon: 'bi bi-person-circle' }
+  ],
+  adminNav: `
+    <div class="admin-nav">
+      <div class="container-fluid px-4">
+        <a href="#" data-route="/admin/jobs">Job Posts</a>
+        <a href="#" data-route="/admin/applicants" class="active">Applicants</a>
+      </div>
+    </div>
+  `,
+  mainClass: 'container-fluid px-4'
+});
+
+// Debug: Log registered routes
+console.log('Registered routes:', Array.from(router.routes.keys()));
+console.log('Root route component:', router.routes.get('/')?.componentFile);
+
+// Initialize router when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => router.init());
+} else {
+  router.init();
+}
+
+
+</script>
+</body>
+</html>
